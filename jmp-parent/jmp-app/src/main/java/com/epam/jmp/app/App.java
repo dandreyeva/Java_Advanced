@@ -30,5 +30,10 @@ public class App {
         Subscription subscription = service.getSubscriptionByBankCardNumber(bankCard.getNumber()).
                 orElseThrow(() -> new SubscriptionNotFoundException("Subscription was not found"));
         System.out.println(subscription);
+
+        System.out.println("User is payable: " + service.isPayableUser(user));
+
+        System.out.println(service.getAllSubscriptionsByCondition(sub ->
+                sub.getStartDate().isAfter(LocalDate.of(2024, 11, 10))));
     }
 }
