@@ -6,6 +6,7 @@ import com.epam.jmp.dto.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public interface Service {
 
@@ -14,4 +15,10 @@ public interface Service {
     Optional<Subscription> getSubscriptionByBankCardNumber(String cardNumber);
 
     List<User> getAllUsers();
+
+    double getAverageUsersAge();
+
+    boolean isPayableUser(User user);
+
+    List<Subscription> getAllSubscriptionsByCondition(Predicate<Subscription> condition);
 }
